@@ -24,7 +24,7 @@ def assistir_filme():
 	# permite ou não mostrar a sua localização 
 	chrome_options = webdriver.ChromeOptions()
 	pref = {"profile.default_content_setting_values.notifications":2}
-	chrome_options.add_experimental_option("pref",pref)
+	chrome_options.add_experimental_option("prefs",pref)
 	driver = webdriver.Chrome(chrome_options=chrome_options,
 							 executable_path="C:/webdrivers/chromedriver")
 
@@ -88,8 +88,7 @@ def assistir_filme():
 	linhas = list(range(0, 50))
 	linha_escolhida = random.choice(linhas)
 
-	filme = driver.find_element_by_xpath(
-		'//*[@id="title-card-0-{0}"]/div[1]/a'.format(linha_escolhida))
+	filme = driver.find_element_by_xpath('//*[@id="title-card-0-{0}"]/div[1]/a'.format(linha_escolhida))
 	filme.click()
 
 	# Clique no botão de assistir! Agora é só curtir 
